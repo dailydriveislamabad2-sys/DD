@@ -612,7 +612,7 @@ body{
   margin:0!important;
   padding:4px 15px!important;
   border-radius:15px!important;
-  background:#fff!important;
+  background:rgba(124,58,237,.10) !important;
   box-shadow:0 7px 20px rgba(0,0,0,.16)!important;
 }
 .logo-wrap img,.logo{width:100%!important;height:100%!important;object-fit:contain!important}
