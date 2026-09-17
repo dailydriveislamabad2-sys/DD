@@ -23,3 +23,4 @@ v34 - Cloudflare deployment syntax fix
 - Preserved the original file input, export handler, and print behavior.
 - Added responsive sizing and high-contrast portable action styling.
 - Kept the V34 split architecture: Worker, frontend JS/CSS, and D1 database remain separate.
+V37 MODULAR DASHBOARD: dashboard HTML/CSS/JS isolated in public/dashboard.html, public/css/dashboard.css, public/js/dashboard.js. Backend/D1/core modules preserved. Added public/assets/logout-power.png from user-provided icon.

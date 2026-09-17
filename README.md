@@ -20,3 +20,5 @@ This build separates the application into:
 3. Deploy with `npx wrangler deploy`.
 
 The worker still auto-ensures the required D1 tables/columns so the existing database remains compatible.
+## Dashboard modularization (V37)
+Dashboard UI is isolated in `public/dashboard.html`, `public/css/dashboard.css`, and `public/js/dashboard.js`. Future dashboard-only UI changes should normally require replacing only these dashboard files (plus `public/assets/logout-power.png` if the icon changes). The existing worker/API/D1 and core JS files remain the application base.
