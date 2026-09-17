@@ -1,0 +1,104 @@
+<!-- Daily Drive Dashboard component: UI only; existing IDs/functions intentionally preserved. -->
+<header class="dd-dashboard-header header">
+  <div class="dd-header-inner head">
+    <div class="dd-logo-wrap logo-wrap">
+      <img alt="Daily Drive Official Yango Partner" class="logo" src="/assets/daily-drive.png"/>
+    </div>
+    <div class="dd-search search">
+      <span>⌕</span><input id="dashboardSearch" aria-label="Search" placeholder="Search riders, numbers, or notes..." />
+    </div>
+    <div class="dd-slogan quote" id="quote">
+      <div class="hadith-label">محنت، سچائی اور <b>اعتماد</b> کے ساتھ</div>
+      <div class="hadith-text">بہتر کل کے لیے</div>
+    </div>
+    <div class="dd-clock clock">
+      <div class="dd-clock-icon">◷</div>
+      <div class="dd-day"><b id="day">—</b><br/><small id="date">—</small></div>
+      <div class="dd-time time" id="time">—</div>
+    </div>
+    <div class="dd-profile role-panel">
+      <div class="dd-avatar">👤</div>
+      <div class="role-user-info"><b id="roleName">—</b><small id="roleLabel">Not signed in</small></div>
+      <span class="dd-profile-chevron">⌄</span>
+    </div>
+    <button class="logout-3d dd-logout" onclick="doLogout()" title="Logout">
+      <img src="/assets/logout-power.png" alt=""/> <span>Logout</span>
+    </button>
+  </div>
+</header>
+
+<div class="dd-viewbar viewbar">
+  <div class="viewbar-title">View Mode</div>
+  <div class="viewbar-controls">
+    <div class="mode-switch">
+      <button class="mode-btn active" id="editModeBtn" onclick="setViewMode('editing')">✎ Editing</button>
+      <button class="mode-btn" id="readModeBtn" onclick="setViewMode('reading')">👁 Reading</button>
+    </div>
+    <button class="theme-btn active" id="themeLight" onclick="setTheme('light')">☀ Light</button>
+    <button class="theme-btn" id="themeDark" onclick="setTheme('dark')">🌙 Dark</button>
+    <button class="theme-btn yellow" id="themeYellow" onclick="setTheme('yellow')">💡 Yellow Light</button>
+    <span class="dd-view-separator"></span>
+
+    <label class="dd-compact-action dd-import admin-only" title="Import Excel">
+      <span>▣</span><b>Import</b>
+      <input accept=".xlsx,.xls,.csv" hidden id="file" type="file"/>
+    </label>
+    <button class="dd-compact-action dd-export admin-only" onclick="exportX()"><span>⇩</span><b>Export</b></button>
+    <button class="dd-compact-action dd-print admin-only" onclick="window.print()"><span>▣</span><b>Print</b></button>
+    <button class="dd-new-sheet" id="ddNewSheet" onclick="if(typeof addSheet==='function')addSheet()">＋ New Sheet</button>
+  </div>
+</div>
+
+<!-- Hidden compatibility element used by existing setViewMode() -->
+<span id="modeHint" style="display:none"></span>
+
+<main class="main dd-dashboard-main">
+  <div class="sheet-tabs" id="sheetTabs"></div>
+
+  <div class="dd-assign-panel vip-quick-assign admin-only" id="vipQuickAssign">
+    <div class="dd-assign-title">
+      <span class="dd-bolt">ϟ</span>
+      <div><b>ASSIGN RIDERS:</b><small>Select count and destination sheet</small></div>
+    </div>
+    <div class="dd-count-wrap">
+      <input id="vipAssignCount" max="10000" min="1" title="How many riders" type="number" value="10"/>
+      <span class="dd-count-arrows">⌃<br/>⌄</span>
+    </div>
+    <div class="dd-sheet-select">
+      <span>👥</span>
+      <select id="vipAssignSheet"><option value="">Select Destination Sheet</option></select>
+    </div>
+    <button class="dd-assign-button" onclick="vipAssignCount()" type="button">➤ &nbsp; Assign Riders → Sheet</button>
+    <div class="dd-assign-info"><span>●</span><div>Selected <b id="ddAssignSelected">10</b> riders will be assigned to<br/><b id="ddAssignTargetName">destination sheet</b></div></div>
+  </div>
+
+  <section class="stats">
+    <div class="stat"><div class="icon s1">👥</div><div><div class="label">Total Riders</div><div class="value" id="total">0</div><small>All registered riders</small><span class="dd-stat-arrow">→</span></div></div>
+    <div class="stat"><div class="icon s2">⌛</div><div><div class="label">Pending Calls</div><div class="value" id="pending">0</div><small>Yet to be called</small><span class="dd-stat-arrow">→</span></div></div>
+    <div class="stat"><div class="icon s3">✓</div><div><div class="label">Answered</div><div class="value" id="answered">0</div><small>Successful calls</small><span class="dd-stat-arrow">→</span></div></div>
+    <div class="stat"><div class="icon s4">☎</div><div><div class="label">No Answer</div><div class="value" id="noanswer">0</div><small>Did not respond</small><span class="dd-stat-arrow">→</span></div></div>
+    <div class="stat"><div class="icon s5">💬</div><div><div class="label">Comments</div><div class="value" id="comments">0</div><small>Total comments</small><span class="dd-stat-arrow">→</span></div></div>
+  </section>
+
+  <div class="dd-table-tools">
+    <section class="toolbar">
+      <div class="field">🔎&nbsp; <input id="search" placeholder="Search name, number, last trip or comment..."/></div>
+      <div class="field"><select id="filter"><option value="">All Status</option><option>Pending</option><option>Answered</option><option>No Answer</option><option>Busy</option></select></div>
+      <div class="field">📅&nbsp; <input id="dateFilter" type="date"/></div>
+      <select class="field" id="sortSelect" onchange="setSort(this.value)">
+        <option value="">↕ Default Order</option><option value="name-asc">Name ↑ A–Z</option><option value="name-desc">Name ↓ Z–A</option>
+        <option value="last-asc">Last Trip ↑ Oldest</option><option value="last-desc">Last Trip ↓ Newest</option>
+        <option value="next-asc">Next Call ↑ Earliest</option><option value="next-desc">Next Call ↓ Latest</option>
+      </select>
+      <button class="clear" onclick="clearFilters()">↻ Clear</button>
+    </section>
+  </div>
+
+  <section class="table"><div class="scroll"><table><thead><tr><th class="check-cell">✓</th><th>#</th><th>Name</th><th>Number</th><th>Last Trip</th><th>Call Status</th><th>Next Call</th><th>Comment</th><th>WhatsApp</th><th>Actions</th></tr></thead><tbody id="ridersBody"><tr><td class="empty" colspan="10">Loading riders from Cloudflare D1…</td></tr></tbody></table></div><div class="footer"><span id="showing">Showing 0 riders</span><span>Stay Connected, Keep Driving Forward! 🚀</span></div></section>
+
+  <div class="modal quick-modal" id="queueModal"><div class="modal-card"><h2 id="queueTitle">📞 Calling Queue</h2><div id="queueContent"></div><div class="modal-actions"><button class="cancel" onclick="closeFeatureModal('queueModal')">Close</button></div></div></div>
+  <div class="modal quick-modal" id="historyModal"><div class="modal-card"><h2>📝 Call History</h2><div class="history-list" id="historyContent">Loading…</div><div class="modal-actions"><button class="cancel" onclick="closeFeatureModal('historyModal')">Close</button></div></div></div>
+  <div class="modal quick-modal" id="analyticsModal"><div class="modal-card"><h2>📊 Sheet Analytics</h2><div id="analyticsContent">Loading…</div><div class="modal-actions"><button class="cancel" onclick="closeFeatureModal('analyticsModal')">Close</button></div></div></div>
+  <div class="modal quick-modal" id="templatesModal"><div class="modal-card"><h2>💬 WhatsApp Templates</h2><div class="formgrid"><label class="full">Template 1<textarea id="tpl1"></textarea></label><label class="full">Template 2<textarea id="tpl2"></textarea></label><label class="full">Template 3<textarea id="tpl3"></textarea></label></div><div class="modal-actions"><button class="cancel" onclick="closeFeatureModal('templatesModal')">Close</button><button class="confirm admin-only" onclick="saveTemplates()">Save Templates</button></div></div></div>
+  <div class="modal quick-modal" id="bulkModal"><div class="modal-card"><h2>⚡ Bulk Actions</h2><div class="bulk-actions"><select id="bulkStatus"><option value="">Status…</option><option>Pending</option><option>Answered</option><option>No Answer</option><option>Busy</option></select><input id="bulkDate" type="date"/><input id="bulkTag" placeholder="Tag"/><button class="confirm" onclick="applyBulkActions()">Apply</button></div><div class="smart-reason">Select riders using ✓, then choose one or more actions.</div><div class="modal-actions"><button class="cancel" onclick="closeFeatureModal('bulkModal')">Close</button></div></div></div>
+</main>

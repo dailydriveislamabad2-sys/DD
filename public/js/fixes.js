@@ -872,3 +872,44 @@ window.ddQuickAssignRoleRefreshV30=run;
   [50,150,300,600,1000,2000,4000].forEach(function(t){setTimeout(run,t)});
   window.ddQuickAssignLayoutRefreshV31=run;
 })();
+
+
+/* ===== V35 compact dashboard action row ===== */
+(function(){
+  'use strict';
+  function moveDashboardActions(){
+    var vc=document.querySelector('.viewbar-controls');
+    if(!vc)return;
+    var map=[
+      ['.action.import','dd-portable-import','⇧','Import'],
+      ['.action.save','dd-portable-export','⇩','Export'],
+      ['.action.print','dd-portable-print','▣','Print']
+    ];
+    map.forEach(function(item){
+      var source=document.querySelector(item[0]);
+      if(!source||source.classList.contains('dd-moved'))return;
+      source.classList.add('dd-moved');
+      var b=document.createElement('button');
+      b.type='button';
+      b.className='dd-portable-action '+item[1];
+      b.innerHTML='<span class="dd-portable-icon">'+item[2]+'</span><span>'+item[3]+'</span>';
+      b.title=source.querySelector('b')?.textContent||item[3];
+      if(item[3]==='Import'){
+        b.onclick=function(){
+          var f=document.getElementById('file');
+          if(f)f.click();
+        };
+      }else if(item[3]==='Export'){
+        b.onclick=function(){if(typeof exportX==='function')exportX();};
+      }else{
+        b.onclick=function(){window.print();};
+      }
+      var newSheet=document.getElementById('ddRefNewSheet');
+      if(newSheet)vc.insertBefore(b,newSheet);else vc.appendChild(b);
+    });
+  }
+  function run(){try{moveDashboardActions()}catch(e){console.error('Dashboard action row:',e)}}
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+  [100,400,900,1800,3500].forEach(function(t){setTimeout(run,t)});
+  window.ddCompactActionRowRefresh=run;
+})();

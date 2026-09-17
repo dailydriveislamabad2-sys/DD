@@ -1,0 +1,97 @@
+/* Daily Drive — Dashboard-only styling. Keep this file isolated from backend/core styles. */
+.dd-dashboard-header{
+  margin-left:238px!important;width:calc(100% - 238px)!important;max-width:none!important;
+  min-height:126px!important;padding:18px 28px!important;position:relative;overflow:visible!important;
+  background:linear-gradient(180deg,#062d5b,#05254b)!important;border-bottom:1px solid rgba(92,177,255,.22);
+}
+.dd-header-inner{max-width:none!important;margin:0!important;display:grid!important;grid-template-columns:1.05fr 1.35fr 1.05fr 1.05fr;align-items:center;gap:24px;position:relative}
+.dd-logo-wrap{width:auto!important;height:80px!important;background:transparent!important;border-radius:0!important;padding:0!important}
+.dd-logo-wrap .logo{width:100%!important;height:100%!important;object-fit:contain}
+.dd-search{height:70px!important;width:auto!important;background:#123c6d!important;border:1px solid #275685!important;border-radius:13px!important;padding:0 20px!important;display:flex!important;align-items:center!important;gap:10px!important;color:#c9d9ea!important}
+.dd-search input{flex:1;border:0;outline:0;background:transparent;color:#fff;font-size:17px;min-width:0}
+.dd-search input::placeholder{color:#c8d8e8}
+.dd-search span{font-size:31px!important}
+.dd-slogan{height:auto!important;min-height:70px!important;background:transparent!important;padding:0!important;border-radius:0!important;font-size:18px!important;line-height:1.55!important;text-align:center!important;color:#fff!important}
+.dd-slogan b{color:#ffd22c}
+.dd-clock{height:80px!important;width:auto!important;background:#031a3a!important;border-radius:13px!important;padding:0 16px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:13px!important}
+.dd-clock-icon{font-size:39px;color:#ff1838}
+.dd-day{font-size:18px;font-weight:850;border-right:1px solid #39516e;padding-right:14px;white-space:nowrap}
+.dd-day small{color:#c5d5e7;font-weight:600;font-size:13px}
+.dd-time{font-size:28px!important;color:#ff1838!important;font-weight:950!important;letter-spacing:1px;white-space:nowrap}
+.dd-profile{height:80px!important;background:#103a69!important;border-radius:13px!important;display:flex!important;align-items:center!important;padding:10px 15px!important;gap:11px!important}
+.dd-avatar{width:52px;height:52px;border-radius:50%;background:#eef4ff;display:grid;place-items:center;font-size:28px;flex:none}
+.dd-profile-chevron{margin-left:auto;font-size:25px}
+.dd-logout{position:absolute!important;right:0!important;bottom:-42px!important;z-index:50!important;border:0!important;border-radius:11px!important;background:linear-gradient(135deg,#d9243d,#9d293c)!important;color:#fff!important;font-weight:900!important;padding:10px 18px!important;display:flex!important;gap:8px!important;align-items:center!important;box-shadow:0 8px 20px rgba(216,43,66,.35)!important}
+.dd-logout img{width:23px;height:23px;object-fit:contain;filter:brightness(0) invert(1)}
+.dd-viewbar{
+  margin:18px 20px 0 258px!important;width:calc(100% - 278px)!important;min-height:77px!important;
+  padding:10px 18px!important;background:#ffffffed!important;border:1px solid #d4e2ef!important;border-radius:17px!important;
+  box-shadow:0 7px 20px rgba(18,59,100,.08)!important;display:flex!important;align-items:center!important;
+}
+.dd-viewbar .viewbar-title{font-weight:950;font-size:19px;margin-right:8px;white-space:nowrap}
+.dd-viewbar .viewbar-controls{display:flex!important;align-items:center!important;gap:10px!important;width:100%!important}
+.dd-viewbar .mode-switch{display:flex;gap:8px}
+.dd-viewbar .mode-btn,.dd-viewbar .theme-btn{
+  height:57px!important;padding:0 18px!important;border-radius:12px!important;border:1px solid #cbdceb!important;
+  background:#fff!important;color:#102b4c!important;font-weight:900!important;white-space:nowrap!important;box-shadow:0 3px 8px rgba(20,59,96,.06)!important
+}
+.dd-viewbar .mode-btn.active,.dd-viewbar .theme-btn.active{background:#1b72e5!important;color:#fff!important;border-color:#1b72e5!important}
+.dd-viewbar .theme-btn.yellow.active{background:#fff7cf!important;color:#805900!important;border-color:#f0ca50!important}
+.dd-view-separator{height:40px;width:1px;background:#d6e1ed;margin:0 5px}
+.dd-compact-action{
+  height:57px!important;padding:0 19px!important;border-radius:12px!important;display:flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;
+  color:#fff!important;font-weight:900!important;cursor:pointer!important;white-space:nowrap!important;box-shadow:0 5px 12px rgba(20,59,96,.10)!important
+}
+.dd-compact-action span{font-size:21px}
+.dd-import{background:#06ad59!important}.dd-export{background:#1b72e5!important;border:0!important}.dd-print{background:#6630dc!important;border:0!important}
+.dd-new-sheet{margin-left:auto;height:57px;padding:0 21px;border:1px solid #cbdceb;border-radius:12px;background:#fff;color:#173654;font-weight:900;white-space:nowrap;box-shadow:0 3px 8px rgba(20,59,96,.06)}
+.dd-dashboard-main{margin:0 20px 0 258px!important;max-width:none!important;width:calc(100% - 278px)!important;padding:0 0 40px!important}
+.dd-dashboard-main .sheet-tabs{
+  margin-top:18px!important;padding:9px!important;display:flex!important;gap:13px!important;min-height:71px!important;height:71px!important;
+  align-items:center!important;overflow-x:auto!important;overflow-y:hidden!important;background:#ffffffd9!important;border:1px solid #d4e2ef!important;border-radius:17px!important;
+  box-shadow:0 7px 20px rgba(18,59,100,.07)!important
+}
+.dd-dashboard-main .sheet-tab{height:54px!important;padding:0 21px!important;border:1px solid #cbdceb!important;border-radius:13px!important;background:linear-gradient(180deg,#fff,#f1f7fc)!important;color:#173654!important;font-weight:850!important;white-space:nowrap!important;display:flex!important;align-items:center!important;gap:12px!important}
+.dd-dashboard-main .sheet-tab.active{background:#1974e8!important;color:#fff!important;border-color:#1974e8!important}
+.dd-dashboard-main .sheet-tab .sheet-delete,.dd-dashboard-main .sheet-tab .x{display:grid;place-items:center;width:27px;height:27px;border-radius:9px;background:#f8dfe3;color:#ed304a;font-weight:900}
+.dd-dashboard-main .sheet-tab.active .sheet-delete,.dd-dashboard-main .sheet-tab.active .x{background:#5b94ea;color:#fff}
+.dd-assign-panel{
+  margin-top:18px!important;padding:18px 24px!important;display:grid!important;grid-template-columns:1.1fr 120px 1.25fr 1.25fr 1.2fr!important;gap:14px!important;align-items:center!important;
+  min-height:124px!important;background:#ffffffed!important;border:1px solid #bfa8ff!important;border-radius:17px!important;box-shadow:0 8px 25px rgba(97,52,226,.10)!important
+}
+.dd-assign-title{display:flex;align-items:center;gap:15px}.dd-bolt{font-size:49px;color:#ffae14}.dd-assign-title b{display:block;font-size:21px;letter-spacing:.5px}.dd-assign-title small{display:block;color:#7890a8;font-size:13px;margin-top:4px}
+.dd-count-wrap{height:72px;border:1px solid #c9d9e8;border-radius:12px;background:#fff;display:flex;align-items:center;position:relative}
+.dd-count-wrap input{width:100%;height:100%;border:0;outline:0;background:transparent;text-align:center;font-size:21px;font-weight:900;padding-right:22px}
+.dd-count-arrows{position:absolute;right:9px;font-size:18px;line-height:1.1;font-weight:900}
+.dd-sheet-select{height:72px;border:1px solid #c9d9e8;border-radius:12px;background:#fff;display:flex;align-items:center;padding:0 15px;gap:8px}
+.dd-sheet-select span{font-size:22px}.dd-sheet-select select{width:100%;height:100%;border:0;outline:0;background:transparent;font-weight:900;font-size:17px;color:#173654}
+.dd-assign-button{height:72px;border:0;border-radius:12px;background:linear-gradient(100deg,#7134ed,#5b2be3);color:#fff;font-size:17px;font-weight:900;box-shadow:0 9px 20px rgba(102,51,223,.25)}
+.dd-assign-info{height:72px;background:#edf2ff;border-radius:12px;padding:11px 15px;color:#2b4563;display:flex;align-items:center;font-size:14px;line-height:1.45}.dd-assign-info>span{font-size:20px;margin-right:9px;color:#2f61da}
+.dd-dashboard-main .stats{margin-top:18px!important;display:grid!important;grid-template-columns:repeat(5,1fr)!important;gap:18px!important}
+.dd-dashboard-main .stat{position:relative;min-height:145px!important;background:#fff!important;border:1px solid #e0e9f1!important;border-radius:15px!important;padding:18px!important;display:grid!important;grid-template-columns:84px 1fr!important;gap:16px!important;align-items:center!important;box-shadow:0 7px 18px rgba(26,69,105,.08)!important}
+.dd-dashboard-main .stat .icon{width:84px!important;height:84px!important;border-radius:16px!important;display:grid!important;place-items:center!important;font-size:43px!important}
+.dd-dashboard-main .stat h4{margin:0}.dd-stat-arrow{position:absolute;right:14px;bottom:14px;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:#e7f0ff;font-size:24px}
+.dd-dashboard-main .stat:nth-child(2) .dd-stat-arrow{background:#fff0d0}.dd-dashboard-main .stat:nth-child(3) .dd-stat-arrow{background:#dff8e8}.dd-dashboard-main .stat:nth-child(4) .dd-stat-arrow{background:#ffe1e4}.dd-dashboard-main .stat:nth-child(5) .dd-stat-arrow{background:#e9e2ff}
+.dd-table-tools{margin-top:18px}
+.dd-dashboard-main .toolbar{margin-bottom:13px!important}
+.dd-dashboard-main .table{border-radius:13px!important}
+.dd-dashboard-main .quickbar,.dd-dashboard-main .priority-legend,.dd-dashboard-main #assignBar{display:none!important}
+@media(max-width:1400px){
+  .dd-header-inner{grid-template-columns:1fr 1.25fr 1fr 1fr!important;gap:12px!important}
+  .dd-dashboard-main .stats{gap:10px!important}
+  .dd-assign-panel{grid-template-columns:1fr 100px 1fr 1.1fr 1fr!important}
+}
+@media(max-width:1050px){
+  .dd-dashboard-header{margin-left:0!important;width:100%!important;padding:14px!important}
+  .dd-header-inner{grid-template-columns:1fr 1fr!important}
+  .dd-slogan{display:none}.dd-clock{display:none}
+  .dd-viewbar,.dd-dashboard-main{margin-left:20px!important;width:calc(100% - 40px)!important}
+  .dd-assign-panel{grid-template-columns:1fr 100px 1fr!important}
+  .dd-assign-button,.dd-assign-info{grid-column:span 1}
+  .dd-dashboard-main .stats{grid-template-columns:repeat(2,1fr)!important}
+}
+@media(max-width:700px){
+  .dd-viewbar{overflow-x:auto!important}.dd-viewbar .viewbar-controls{width:max-content!important}
+  .dd-assign-panel{grid-template-columns:1fr!important}
+  .dd-dashboard-main .stats{grid-template-columns:1fr!important}
+}
