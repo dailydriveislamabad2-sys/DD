@@ -17,3 +17,9 @@ v34 - Cloudflare deployment syntax fix
 - Fixed missing closing brace around /api route block in worker.js that caused: Unexpected "catch" at worker.js:257/Deploy build failure.
 - Removed hidden control-character bytes from fixes.js role regex; replaced with proper \\b word-boundaries.
 - Preserved existing admin/superadmin/administrator/superuser Quick Assign UI logic.
+
+[V35] Dashboard UI integration
+- Integrated compact Import / Export / Print controls into the existing View Mode row.
+- Preserved the original file input, export handler, and print behavior.
+- Added responsive sizing and high-contrast portable action styling.
+- Kept the V34 split architecture: Worker, frontend JS/CSS, and D1 database remain separate.
