@@ -464,7 +464,7 @@ html,body{overflow-x:hidden!important;max-width:100%!important}
   box-shadow:0 7px 20px rgba(22,56,91,.08)!important;overflow:visible!important
 }
 #vipQuickAssign>b{display:block!important;flex:0 0 auto!important;min-width:112px!important;font-size:13px!important;color:#183451!important;white-space:nowrap!important}
-#vipQuickAssign input{flex:0 0 74px!important;width:74px!important;height:44px!important;min-width:74px!important;border:1px solid #cbd8e5!important;border-radius:10px!important;background:#fff!important;text-align:center!important;font-size:15px!important;font-weight:900!important}
+#vipQuickAssign input{flex:0 0 74px!important;width:74px!important;height:44px!important;min-width:74px!important;border:0px solid #cbd8e5!important;border-radius:10px!important;background:#fff!important;text-align:center!important;font-size:15px!important;font-weight:900!important}
 #vipQuickAssign select{flex:1 1 auto!important;min-width:240px!important;width:auto!important;height:44px!important;border:1px solid #cbd8e5!important;border-radius:10px!important;background:#fff!important;padding:0 12px!important;font-size:13px!important;font-weight:850!important;color:#172e49!important}
 #vipQuickAssign button{flex:0 0 auto!important;min-width:280px!important;height:46px!important;padding:0 22px!important;border-radius:11px!important;background:linear-gradient(135deg,#0ca862,#087c4b)!important;color:#fff!important;border:0!important;box-shadow:0 9px 18px rgba(9,128,78,.20)!important;font-size:14px!important;font-weight:950!important;white-space:nowrap!important}
 /* Keep logout/account visible and put it in the top header row. */
@@ -816,7 +816,7 @@ body{
   flex:0 0 74px!important;
   width:74px!important;
   height:44px!important;
-  border:1px solid #cbd8e5!important;
+  border:0px solid #cbd8e5!important;
   border-radius:10px!important;
   background:#fff!important;
   text-align:center!important;
@@ -828,7 +828,7 @@ body{
   min-width:190px!important;
   width:auto!important;
   height:44px!important;
-  border:1px solid #cbd8e5!important;
+  border:0px solid #cbd8e5!important;
   border-radius:10px!important;
   background:#fff!important;
   padding:0 12px!important;
