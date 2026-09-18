@@ -95,3 +95,51 @@
   .dd-assign-panel{grid-template-columns:1fr!important}
   .dd-dashboard-main .stats{grid-template-columns:1fr!important}
 }
+
+/* ===== V38: ASSIGN RIDERS OVERLAP + TIGHT ERGONOMIC SPACING FIX ===== */
+.dd-dashboard-main #vipQuickAssign.dd-assign-panel,
+.dd-dashboard-main .dd-assign-panel#vipQuickAssign{
+  position:relative!important;inset:auto!important;top:auto!important;right:auto!important;
+  bottom:auto!important;left:auto!important;z-index:5!important;width:100%!important;
+  height:auto!important;min-height:92px!important;margin:12px 0 0!important;
+  padding:10px 14px!important;box-sizing:border-box!important;display:grid!important;
+  grid-template-columns:minmax(210px,1.05fr) 86px minmax(250px,1.2fr) minmax(250px,1.35fr) minmax(220px,1.1fr)!important;
+  gap:10px!important;align-items:center!important;overflow:visible!important;
+}
+.dd-dashboard-main #vipQuickAssign .dd-assign-title{min-width:0!important;gap:9px!important}
+.dd-dashboard-main #vipQuickAssign .dd-bolt{font-size:38px!important;line-height:1!important}
+.dd-dashboard-main #vipQuickAssign .dd-assign-title b{font-size:18px!important;line-height:1.05!important}
+.dd-dashboard-main #vipQuickAssign .dd-assign-title small{font-size:12px!important;margin-top:3px!important}
+.dd-dashboard-main #vipQuickAssign .dd-count-wrap,
+.dd-dashboard-main #vipQuickAssign .dd-sheet-select,
+.dd-dashboard-main #vipQuickAssign .dd-assign-button,
+.dd-dashboard-main #vipQuickAssign .dd-assign-info{
+  height:58px!important;min-height:58px!important;box-sizing:border-box!important;
+}
+.dd-dashboard-main #vipQuickAssign .dd-count-wrap{width:100%!important}
+.dd-dashboard-main #vipQuickAssign .dd-count-wrap input{font-size:18px!important;padding-right:18px!important}
+.dd-dashboard-main #vipQuickAssign .dd-sheet-select{padding:0 11px!important;gap:7px!important}
+.dd-dashboard-main #vipQuickAssign .dd-sheet-select select{font-size:14px!important;min-width:0!important}
+.dd-dashboard-main #vipQuickAssign .dd-assign-button{width:100%!important;padding:0 14px!important;font-size:15px!important;white-space:nowrap!important}
+.dd-dashboard-main #vipQuickAssign .dd-assign-info{padding:8px 11px!important;font-size:13px!important;line-height:1.3!important}
+.dd-dashboard-main .stats{margin-top:14px!important}
+
+@media(max-width:1400px) and (min-width:951px){
+  .dd-dashboard-main #vipQuickAssign.dd-assign-panel{
+    grid-template-columns:minmax(185px,1fr) 78px minmax(220px,1.15fr) minmax(220px,1.2fr) minmax(185px,1fr)!important;
+    gap:8px!important;padding:9px 11px!important;
+  }
+  .dd-dashboard-main #vipQuickAssign .dd-assign-button{font-size:14px!important;padding:0 10px!important}
+}
+@media(max-width:950px){
+  .dd-dashboard-main #vipQuickAssign.dd-assign-panel{
+    position:relative!important;inset:auto!important;width:100%!important;min-height:0!important;
+    margin:12px 0 0!important;padding:10px!important;grid-template-columns:1fr 86px 1fr!important;
+  }
+}
+@media(max-width:700px){
+  .dd-dashboard-main #vipQuickAssign.dd-assign-panel{grid-template-columns:1fr!important}
+  .dd-dashboard-main #vipQuickAssign .dd-assign-button,
+  .dd-dashboard-main #vipQuickAssign .dd-assign-info{width:100%!important}
+}
+/* ===== END V38 ===== */
