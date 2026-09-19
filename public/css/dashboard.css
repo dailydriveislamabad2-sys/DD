@@ -1,6 +1,6 @@
 /* Daily Drive — Dashboard-only styling. Keep this file isolated from backend/core styles. */
 .dd-dashboard-header{
-  margin-left:0px!important;width:calc(121% - 238px)!important;max-width:none!important;
+  margin-left:0px!important;width:calc(116% - 238px)!important;max-width:none!important;
   min-height:126px!important;padding:18px 28px!important;position:relative;overflow:visible!important;
   background:linear-gradient(180deg,#062d5b,#05254b)!important;border-bottom:1px solid rgba(92,177,255,.22);
 }
