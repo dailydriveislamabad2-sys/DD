@@ -143,3 +143,62 @@
   .dd-dashboard-main #vipQuickAssign .dd-assign-info{width:100%!important}
 }
 /* ===== END V38 ===== */
+
+/* ===== V39 MASTER UI FIXES ===== */
+/* 1. Admin role card: keep it in the same header row. */
+.dd-header-inner.dd-role-layout-fixed{
+  grid-template-columns:minmax(180px,1fr) minmax(250px,1.35fr) minmax(190px,1fr) 225px 230px!important;
+  gap:14px!important;
+  align-items:center!important;
+}
+.dd-header-inner.dd-role-layout-fixed>.dd-profile.dd-admin-card-fixed{
+  position:relative!important;
+  inset:auto!important;
+  grid-column:auto!important;
+  grid-row:auto!important;
+  width:100%!important;
+  min-width:0!important;
+  height:64px!important;
+  min-height:64px!important;
+  margin:0!important;
+  box-sizing:border-box!important;
+  overflow:hidden!important;
+  z-index:6!important;
+}
+.dd-header-inner.dd-role-layout-fixed>.dd-profile.dd-admin-card-fixed .role-user-info{min-width:0!important}
+.dd-header-inner.dd-role-layout-fixed>.dd-profile.dd-admin-card-fixed .role-user-info b,
+.dd-header-inner.dd-role-layout-fixed>.dd-profile.dd-admin-card-fixed .role-user-info small{white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important}
+
+/* 3. Assign Riders: fixed count column prevents the number input from
+   escaping the panel at wide desktop sizes. */
+.dd-dashboard-main #vipQuickAssign.dd-assign-panel{
+  grid-template-columns:minmax(220px,1.05fr) 104px minmax(250px,1.2fr) minmax(300px,1.35fr) minmax(220px,1fr)!important;
+  min-width:0!important;
+  overflow:hidden!important;
+}
+.dd-dashboard-main #vipQuickAssign.dd-assign-panel>*{min-width:0!important;box-sizing:border-box!important}
+.dd-dashboard-main #vipQuickAssign .dd-count-wrap{
+  width:104px!important;min-width:104px!important;max-width:104px!important;
+  height:58px!important;overflow:hidden!important;
+}
+.dd-dashboard-main #vipQuickAssign .dd-count-wrap input{
+  width:100%!important;min-width:0!important;max-width:100%!important;
+  padding:0 18px!important;box-sizing:border-box!important;
+}
+
+@media(max-width:1450px) and (min-width:1051px){
+  .dd-header-inner.dd-role-layout-fixed{
+    grid-template-columns:minmax(160px,1fr) minmax(230px,1.25fr) minmax(170px,1fr) 205px 210px!important;
+    gap:10px!important;
+  }
+  .dd-dashboard-main #vipQuickAssign.dd-assign-panel{
+    grid-template-columns:minmax(190px,1fr) 96px minmax(220px,1.1fr) minmax(260px,1.2fr) minmax(190px,1fr)!important;
+    gap:8px!important;padding:9px 11px!important;
+  }
+  .dd-dashboard-main #vipQuickAssign .dd-count-wrap{width:96px!important;min-width:96px!important;max-width:96px!important}
+}
+@media(max-width:1050px){
+  .dd-header-inner.dd-role-layout-fixed{grid-template-columns:1fr 1fr!important}
+  .dd-header-inner.dd-role-layout-fixed>.dd-profile.dd-admin-card-fixed{width:100%!important}
+}
+/* ===== END V39 MASTER UI FIXES ===== */

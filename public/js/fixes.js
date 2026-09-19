@@ -1,24 +1,3 @@
-/* ===== referenceExactJs ===== */
-
-(function(){
-  function addReferenceNewSheet(){
-    var vc=document.querySelector('.viewbar-controls');
-    if(!vc || document.getElementById('ddRefNewSheet')) return;
-    var b=document.createElement('button');
-    b.id='ddRefNewSheet';b.type='button';b.textContent='＋  New Sheet';b.title='Create a new sheet';
-    b.onclick=function(){if(typeof addSheet==='function')addSheet()};
-    vc.appendChild(b);
-  }
-  function syncReferenceUi(){
-    addReferenceNewSheet();
-    var sb=document.getElementById('sheetTabs');
-    if(sb){sb.setAttribute('aria-hidden','true');}
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',syncReferenceUi); else syncReferenceUi();
-  setTimeout(syncReferenceUi,120);setTimeout(syncReferenceUi,700);setTimeout(syncReferenceUi,1800);
-})();
-
-
 /* ===== finalFixHtml ===== */
 
 (function(){
@@ -913,3 +892,105 @@ window.ddQuickAssignRoleRefreshV30=run;
   [100,400,900,1800,3500].forEach(function(t){setTimeout(run,t)});
   window.ddCompactActionRowRefresh=run;
 })();
+
+/* ===== V39 MASTER UI FIXES ===== */
+(function(){
+  'use strict';
+
+  // 1) Keep the Admin role card inside the header layout and never let it
+  // fall into a second grid row / overlap the sidebar.
+  function fixAdminCard(){
+    var h=document.querySelector('.dd-header-inner');
+    var p=document.getElementById('roleName');
+    if(h) h.classList.add('dd-role-layout-fixed');
+    if(p){
+      var panel=p.closest('.role-panel');
+      if(panel) panel.classList.add('dd-admin-card-fixed');
+    }
+  }
+
+  // 2) Fast sheet switching: switch the active tab immediately, use an
+  // in-memory rider cache, and fetch only the selected sheet's riders.
+  var riderCache=window.__DD_RIDER_CACHE__ || {};
+  window.__DD_RIDER_CACHE__=riderCache;
+  var switchSeq=0;
+
+  function setActiveTab(id){
+    document.querySelectorAll('#sheetTabs .sheet-tab[data-dd-sheet],#sheetTabs .sheet-tab').forEach(function(btn){
+      var bid=btn.getAttribute('data-dd-sheet');
+      if(bid!==null) btn.classList.toggle('active',String(bid)===String(id));
+    });
+  }
+
+  function cacheCurrent(){
+    try{
+      if(typeof currentSheetId!=='undefined' && Array.isArray(rows))
+        riderCache[String(currentSheetId)]=rows.slice();
+    }catch(e){}
+  }
+
+  window.ddSwitchSheet=async function(id){
+    var target=String(id||'unassigned');
+    var seq=++switchSeq;
+    cacheCurrent();
+    currentSheetId=target;
+    localStorage.setItem('dd_current_sheet',target);
+    setActiveTab(target);
+
+    // Render cached data immediately — this makes repeated sheet switching instant.
+    if(Array.isArray(riderCache[target])){
+      rows=riderCache[target].slice();
+      if(typeof render==='function')render();
+    }else if(typeof render==='function'){
+      var body=document.getElementById('ridersBody');
+      if(body)body.innerHTML='<tr><td colspan="10" class="empty">Loading sheet…</td></tr>';
+    }
+
+    try{
+      var r=await fetch('/api/riders?sheet='+encodeURIComponent(target),{
+        credentials:'same-origin',cache:'no-store'
+      });
+      if(r.status===401)return;
+      if(!r.ok)throw Error('Sheet load failed');
+      var fresh=await r.json();
+      riderCache[target]=Array.isArray(fresh)?fresh.slice():[];
+      // Ignore an old request if the user clicked another sheet meanwhile.
+      if(seq!==switchSeq || String(currentSheetId)!==target)return;
+      rows=riderCache[target].slice();
+      if(typeof render==='function')render();
+    }catch(e){
+      if(seq===switchSeq && typeof toast==='function')toast('Sheet error: '+e.message);
+    }
+  };
+
+  // Keep cache fresh whenever the current sheet is re-rendered.
+  var oldRender=window.render;
+  if(typeof oldRender==='function' && !oldRender.__ddCacheWrapped){
+    function cachedRender(){
+      try{
+        if(typeof currentSheetId!=='undefined' && Array.isArray(rows))riderCache[String(currentSheetId)]=rows.slice();
+      }catch(e){}
+      return oldRender.apply(this,arguments);
+    }
+    cachedRender.__ddCacheWrapped=true;
+    window.render=cachedRender;
+  }
+
+  // 3) Remove the duplicate top New Sheet button created by older UI code.
+  function removeDuplicateNewSheet(){
+    var ref=document.getElementById('ddRefNewSheet');
+    if(ref)ref.remove();
+  }
+
+  function run(){
+    fixAdminCard();
+    removeDuplicateNewSheet();
+  }
+  run();
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);
+  [100,300,700,1500,3000].forEach(function(t){setTimeout(run,t)});
+
+  // Warm the currently visible sheet into cache after bootstrap.
+  setTimeout(cacheCurrent,1200);
+})();
+/* ===== END V39 MASTER UI FIXES ===== */
