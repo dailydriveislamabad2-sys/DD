@@ -202,3 +202,52 @@
   .dd-header-inner.dd-role-layout-fixed>.dd-profile.dd-admin-card-fixed{width:100%!important}
 }
 /* ===== END V39 MASTER UI FIXES ===== */
+
+
+/* ===== V40 PROFESSIONAL UI POLISH ===== */
+body{background:radial-gradient(circle at 78% 18%,rgba(70,145,255,.08),transparent 26%),linear-gradient(180deg,#edf4fb,#f7fafd 55%,#eef4f9)!important}
+.dd-pro-sidebar{width:238px!important;padding:18px 13px!important;background:radial-gradient(circle at 90% 4%,rgba(43,139,255,.20),transparent 25%),linear-gradient(180deg,#061a32,#071f3a 55%,#06162a)!important;border-right:1px solid rgba(112,181,245,.18)!important;box-shadow:12px 0 38px rgba(3,23,45,.16)!important}
+.dd-side-brand{padding:7px 7px 15px!important}.dd-side-live{margin:12px 2px!important}.dd-side-nav{gap:4px!important}
+.dd-side-nav button{height:43px!important;border-radius:12px!important;padding:0 12px!important;font-size:11.5px!important}
+.dd-side-nav button.active{background:linear-gradient(135deg,#ee3348,#d91f3b)!important;border-color:rgba(255,255,255,.18)!important;box-shadow:0 8px 20px rgba(217,31,59,.24),inset 0 1px rgba(255,255,255,.22)!important}
+
+.dd-dashboard-header{margin-left:238px!important;width:calc(100% - 238px)!important;min-height:112px!important;height:112px!important;padding:14px 22px!important;box-sizing:border-box!important;background:radial-gradient(circle at 72% 25%,rgba(48,151,255,.20),transparent 24%),linear-gradient(180deg,#062e5d,#06264c)!important}
+.dd-header-inner{width:100%!important;height:100%!important;display:grid!important;grid-template-columns:minmax(190px,1.05fr) minmax(310px,1.55fr) minmax(220px,1fr) 275px 250px!important;gap:12px!important;align-items:center!important}
+.dd-logo-wrap{height:72px!important;min-width:0!important;padding:0 8px!important}.dd-logo-wrap .logo{max-width:100%!important}
+.dd-search{height:64px!important;border-radius:15px!important;background:rgba(25,75,125,.78)!important;border:1px solid rgba(113,182,242,.28)!important;box-shadow:inset 0 1px rgba(255,255,255,.07),0 8px 22px rgba(0,18,43,.14)!important}
+.dd-search input{font-size:16px!important}.dd-slogan{min-width:0!important;height:64px!important;padding:0 10px!important;border:1px solid rgba(105,185,247,.18)!important;border-radius:10px!important;background:rgba(4,35,70,.22)!important;display:flex!important;flex-direction:column!important;justify-content:center!important}
+.dd-clock{height:64px!important;min-width:0!important;border:1px solid rgba(255,191,59,.52)!important;border-radius:15px!important;box-shadow:0 8px 22px rgba(0,0,0,.13)!important}.dd-clock-icon{font-size:34px!important}.dd-time{font-size:25px!important}
+.dd-profile{height:64px!important;min-width:0!important;box-sizing:border-box!important;border:1px solid rgba(126,192,245,.30)!important;border-radius:15px!important;background:linear-gradient(135deg,rgba(18,64,111,.95),rgba(9,43,80,.95))!important;box-shadow:0 8px 22px rgba(0,15,40,.13)!important}
+.dd-avatar{width:48px!important;height:48px!important}.dd-profile .role-user-info{min-width:0!important}.dd-profile .role-user-info b,.dd-profile .role-user-info small{white-space:nowrap!important;overflow:hidden!important;text-overflow:ellipsis!important;display:block!important}
+.dd-logout{right:20px!important;bottom:-53px!important;padding:9px 16px!important;border-radius:10px!important}
+
+.dd-viewbar{margin:14px 20px 0 258px!important;width:calc(100% - 278px)!important;min-height:70px!important;padding:8px 12px!important;border-radius:15px!important;box-shadow:0 6px 18px rgba(18,59,100,.055)!important}
+.dd-viewbar .viewbar-title{font-size:17px!important;min-width:92px!important}.dd-viewbar .viewbar-controls{gap:8px!important}
+.dd-viewbar .mode-btn,.dd-viewbar .theme-btn,.dd-compact-action,.dd-new-sheet{height:52px!important;border-radius:11px!important;font-size:13px!important}
+.dd-viewbar .mode-btn,.dd-viewbar .theme-btn{padding:0 16px!important}.dd-compact-action{padding:0 17px!important}.dd-new-sheet{margin-left:auto!important;padding:0 19px!important}
+
+.dd-dashboard-main{margin-left:258px!important;width:calc(100% - 278px)!important}.dd-dashboard-main .sheet-tabs{margin-top:12px!important;min-height:62px!important;height:62px!important;padding:7px!important;gap:8px!important;border-radius:14px!important;background:rgba(255,255,255,.82)!important;box-shadow:0 5px 16px rgba(18,59,100,.055)!important}
+.dd-dashboard-main .sheet-tab{height:48px!important;padding:0 17px!important;border-radius:11px!important;font-size:13px!important;gap:8px!important}.dd-dashboard-main .sheet-tab.active{box-shadow:0 6px 15px rgba(25,116,232,.20)!important}
+.dd-dashboard-main .new-sheet-tab{background:linear-gradient(180deg,#effcf7,#e4f8ef)!important;color:#168452!important;border-color:#a9dfc4!important}
+
+.dd-dashboard-main #vipQuickAssign.dd-assign-panel{margin-top:12px!important;min-height:84px!important;padding:9px 13px!important;border:1px solid #d7caff!important;border-radius:15px!important;background:linear-gradient(100deg,#fff,#faf8ff)!important;box-shadow:0 7px 20px rgba(91,48,210,.075)!important;grid-template-columns:minmax(205px,1.05fr) 104px minmax(240px,1.15fr) minmax(270px,1.3fr) minmax(205px,1fr)!important;gap:9px!important}
+.dd-dashboard-main #vipQuickAssign .dd-bolt{font-size:35px!important;color:#f2a900!important}.dd-dashboard-main #vipQuickAssign .dd-assign-title b{font-size:17px!important}.dd-dashboard-main #vipQuickAssign .dd-assign-title small{font-size:11px!important}
+.dd-dashboard-main #vipQuickAssign .dd-count-wrap,.dd-dashboard-main #vipQuickAssign .dd-sheet-select,.dd-dashboard-main #vipQuickAssign .dd-assign-button,.dd-dashboard-main #vipQuickAssign .dd-assign-info{height:54px!important;min-height:54px!important;border-radius:11px!important}
+.dd-dashboard-main #vipQuickAssign .dd-count-wrap{width:104px!important;min-width:104px!important;max-width:104px!important;border-color:#d4dfeb!important}.dd-dashboard-main #vipQuickAssign .dd-count-wrap input{font-size:19px!important;padding:0!important}
+.dd-dashboard-main #vipQuickAssign .dd-sheet-select{padding:0 12px!important}.dd-dashboard-main #vipQuickAssign .dd-sheet-select select{font-size:13px!important}.dd-dashboard-main #vipQuickAssign .dd-assign-button{font-size:14px!important;box-shadow:0 7px 16px rgba(102,51,223,.20)!important}.dd-dashboard-main #vipQuickAssign .dd-assign-info{font-size:12px!important;background:#f0f4ff!important}
+
+.dd-dashboard-main .stats{margin-top:13px!important;gap:12px!important}.dd-dashboard-main .stat{min-height:128px!important;padding:15px!important;grid-template-columns:70px 1fr!important;gap:13px!important;border-radius:14px!important;box-shadow:0 5px 16px rgba(26,69,105,.065)!important}.dd-dashboard-main .stat .icon{width:70px!important;height:70px!important;border-radius:14px!important;font-size:36px!important}.dd-dashboard-main .stat .label{font-size:11px!important}.dd-dashboard-main .stat .value{font-size:28px!important;line-height:1.05!important}.dd-dashboard-main .stat small{font-size:12px!important}.dd-stat-arrow{width:30px!important;height:30px!important;right:12px!important;bottom:11px!important;font-size:19px!important}
+
+.dd-table-tools{margin-top:12px!important}.dd-dashboard-main .toolbar{min-height:62px!important;padding:8px!important;margin-bottom:10px!important;gap:8px!important;border-radius:14px!important;box-shadow:0 5px 15px rgba(18,59,100,.055)!important}.dd-dashboard-main .toolbar .field{height:46px!important;border-radius:10px!important;border-color:#d3dfeb!important;background:#fbfdff!important}.dd-dashboard-main .toolbar .clear{height:46px!important;border-radius:10px!important}
+.dd-dashboard-main .table{border:1px solid #d8e3ec!important;border-radius:14px!important;box-shadow:0 6px 18px rgba(18,59,100,.055)!important;overflow:hidden!important}.dd-dashboard-main .table table thead th{height:48px!important;font-size:11px!important}.dd-dashboard-main .table table tbody td{height:58px!important;padding:9px 10px!important}.dd-dashboard-main .table .footer{min-height:38px!important;padding:0 12px!important}
+
+.dd-dashboard-main input:focus,.dd-dashboard-main select:focus,.dd-viewbar button:focus-visible{outline:2px solid rgba(35,116,232,.20)!important;outline-offset:1px!important}
+
+@media(max-width:1450px) and (min-width:1051px){
+.dd-header-inner{grid-template-columns:minmax(165px,1fr) minmax(260px,1.35fr) minmax(190px,1fr) 230px 210px!important;gap:9px!important}
+.dd-dashboard-main #vipQuickAssign.dd-assign-panel{grid-template-columns:minmax(180px,1fr) 94px minmax(205px,1.1fr) minmax(235px,1.2fr) minmax(180px,1fr)!important}.dd-dashboard-main #vipQuickAssign .dd-count-wrap{width:94px!important;min-width:94px!important;max-width:94px!important}
+.dd-viewbar .mode-btn,.dd-viewbar .theme-btn,.dd-compact-action,.dd-new-sheet{padding-left:12px!important;padding-right:12px!important}
+}
+@media(max-width:1050px){.dd-dashboard-header{margin-left:0!important;width:100%!important;height:auto!important;min-height:96px!important}.dd-header-inner{grid-template-columns:1fr 1fr!important;height:auto!important}.dd-profile{display:flex!important}.dd-dashboard-main,.dd-viewbar{margin-left:14px!important;width:calc(100% - 28px)!important}}
+@media(max-width:700px){.dd-header-inner{grid-template-columns:1fr!important}.dd-search{order:2}.dd-slogan,.dd-clock{display:none!important}.dd-profile{order:3}.dd-viewbar .viewbar-controls{width:max-content!important}}
+/* ===== END V40 ===== */

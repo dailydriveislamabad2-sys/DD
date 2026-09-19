@@ -30,3 +30,7 @@ V39 - UI fixes
 - Sheet switching now uses an in-memory rider cache and avoids refetching the sheet list on every click.
 - Assign Riders count field has a fixed-width grid column to prevent overflow.
 - Removed the legacy duplicate top New Sheet creator; the dashboard keeps one top button and the sheet-tabs New Sheet action.
+
+V40 - Professional UI polish
+- Refined dashboard visual hierarchy, spacing, header, sidebar, controls, assignment panel, KPI cards, filters and table.
+- Existing IDs, API endpoints and JS handlers preserved.
